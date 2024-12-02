@@ -1,0 +1,406 @@
+.items-center {
+  display: flex;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+[style*="background-color: #fecc22;"],
+.orderforms #page #main .car-touch-up-paints-heading p.small-note,
+#kits,
+.btn_back_step[hidden] {
+  display: none;
+}
+
+.car-touch-up-paints-heading {
+  margin-top: 0 !important;
+}
+
+.orderforms .car-touch-up-paints-heading #color-swatch {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  margin-right: 7px;
+}
+
+#page #main .text-cust,
+#page #main .text-cust {
+  color: var(--H1-Font, #333);
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.quiz {
+  box-sizing: border-box;
+  background: #fffcf4;
+  padding: 16px;
+  float: left;
+}
+.quiz * {
+  box-sizing: border-box;
+  font-family: Arial;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.quiz label {
+  margin: 16px 0 4px !important;
+  font-weight: 700;
+  display: block;
+}
+.quiz_res {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #D9D9D9;
+  padding: 8px 0 3px;
+  margin-top: 8px;
+}
+.quiz_res p {
+  margin: 0 12px 4px 0 !important;
+  line-height: 22px !important;
+  color: var(--Main-Black, #222);
+  font-size: 12px !important;
+  font-style: normal;
+  font-weight: 400;
+  padding-right: 12px !important;
+}
+.quiz_res p.br-1 {
+  border-right: 1px solid #D3DAE2;
+}
+.quiz_res p:last-child {
+  padding-right: 0 !important;
+  margin: 0 0 4px 0 !important;
+}
+
+.btn_next_step {
+  width: 180px;
+  border-radius: 4px;
+  border: 2px solid #e68626;
+  background: linear-gradient(180deg, #ffc842 0%, #f48818 100%);
+  color: var(--H-Main, #333);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+}
+.btn_next_step svg {
+  margin-left: 16px;
+}
+.btn_next_step:hover {
+  background: linear-gradient(180deg, #ffc842 0%, #ffc842 100%);
+}
+
+h3.h3_title {
+  color: var(--H-blue, #0373bd);
+  font-size: 20px !important;
+  font-weight: 700;
+  line-height: 30px !important;
+  margin-bottom: 8px;
+}
+
+.select {
+  position: relative;
+  color: var(--www-paintscratch-com-black, #000);
+  font-size: 14px !important;
+  font-weight: 400;
+  line-height: 22px !important;
+  z-index: 3;
+  width: calc(100% - 16px - 180px);
+  margin-right: 16px;
+}
+.select_current {
+  padding: 6px 13px;
+  position: relative;
+  border: 1px solid #767676;
+  background: var(--Grey-100, #ebebeb);
+  cursor: pointer;
+}
+.select_current svg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+}
+.select.active .select_dropdown {
+  display: block;
+}
+.select.active svg {
+  transform: scaleY(-1);
+}
+.select_dropdown {
+  background: var(--Grey-100, #ebebeb);
+  border: 1px solid #767676;
+  border-top: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  padding: 6px 12px;
+  list-style-type: none;
+  display: none;
+}
+.select_dropdown li {
+  padding: 6px 0;
+  cursor: pointer;
+}
+.select_dropdown li:hover b {
+  color: var(--www-paintscratch-com-blue, #00e);
+  text-decoration-line: underline;
+}
+.select_dropdown li:not(:first-child) {
+  border-top: 1px solid #d9d9d9;
+}
+.select_dropdown li b {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.c-blue {
+  color: #0373BD;
+}
+
+#page #main .recommended_products {
+  box-sizing: border-box;
+  float: left;
+  background: #fffcf4;
+  padding: 16px;
+}
+#page #main .recommended_products * {
+  box-sizing: border-box;
+}
+#page #main .recommended_products .b-1 {
+  padding: 0 16px;
+  border: 1px solid #d3dae2;
+  margin-top: 13px;
+}
+#page #main .recommended_products__base {
+  padding: 16px 0 20px;
+  border-bottom: 1px solid #d3dae2;
+}
+#page #main .recommended_products__base .btn_add {
+  display: none;
+}
+#page #main .recommended_products__base ul {
+  margin-bottom: 18px;
+}
+#page #main .recommended_products li {
+  list-style-type: none;
+  padding: 8px 0;
+  margin: 0;
+  display: flex;
+}
+#page #main .recommended_products li p:not(.price, .qty) {
+  color: var(--Main-Black, #222);
+  font-size: 12px;
+  line-height: 16px;
+  margin: 8px 0;
+}
+#page #main .recommended_products li p.qty {
+  background: #DAE7F8;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  color: var(--www-paintscratch-com-blue, #00E);
+  font-family: Arial;
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+#page #main .recommended_products li .price {
+  color: #900;
+  font-weight: 700;
+}
+#page #main .recommended_products li a {
+  color: var(--Blue-Link, #00e);
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px !important;
+  text-decoration-line: underline;
+}
+#page #main .recommended_products li > a {
+  display: block;
+  border: 1px solid #d3dae2;
+  background: #fff;
+  width: 90px;
+  height: 90px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+#page #main .recommended_products li > a img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+}
+#page #main .recommended_products li .row {
+  justify-content: space-between;
+  margin-top: auto;
+}
+#page #main .recommended_products li > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 90px;
+}
+#page #main .recommended_products a.btn_add_all {
+  float: none;
+  border-radius: 4px;
+  border: 2px solid #e68626;
+  background: linear-gradient(180deg, #ffc842 0%, #f48818 100%);
+  text-align: center;
+  color: var(--H-Main, #333);
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px !important;
+  height: auto;
+  width: 180px;
+  margin-right: 24px;
+  text-decoration: none;
+}
+#page #main .recommended_products a.btn_add_all:hover {
+  background: linear-gradient(180deg, #ffc842 0%, #ffc842 100%);
+}
+#page #main .recommended_products .total {
+  color: #900;
+  font-size: 22px !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px !important;
+  margin: 0;
+}
+#page #main .recommended_products__need {
+  padding: 20px 0 8px;
+}
+
+.btn_back_quiz {
+  color: var(--H-Main, #333);
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px !important;
+  text-decoration-line: underline;
+  margin-top: 16px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.btn_back_quiz svg {
+  margin-right: 16px;
+}
+
+.btn_back_step {
+  color: var(--H-Main, #333);
+  font-family: Arial;
+  font-size: 16px !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px !important;
+  text-decoration-line: underline;
+  margin-top: 24px;
+  background-color: transparent;
+  border: none;
+}
+.btn_back_step svg {
+  margin-right: 8px;
+}
+
+.btn_add {
+  color: var(--Blue-Link, #00e);
+  font-size: 14px !important;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px !important;
+  text-decoration-line: underline;
+}
+.btn_add svg {
+  margin-right: 6px;
+}
+
+.crs_steps_line {
+  margin-bottom: 0;
+}
+
+@media (min-width: 992px) {
+  .quiz,
+  #page #main .recommended_products {
+    width: 630px;
+  }
+  .orderforms .car-touch-up-paints-heading #color-swatch,
+  #page #main h1 {
+    margin-top: 16px !important;
+  }
+  .items-lg-center {
+    display: flex;
+    align-items: center;
+  }
+  .is_mob {
+    display: none !important;
+  }
+}
+@media (max-width: 992px) {
+  .is_desk {
+    display: none !important;
+  }
+  .orderforms #wrapper .car-touch-up-paints-heading {
+    margin-top: 0 !important;
+    padding-top: 2px;
+  }
+  #page #main .recommended_products,
+  .quiz {
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-top: 15px;
+  }
+  h3.h3_title {
+    margin-bottom: 12px;
+  }
+  .select {
+    width: 100%;
+    margin: 0 0 16px 0;
+  }
+  .regular #wrapper .category-heading h2 {
+    margin-left: 0;
+  }
+  .regular #wrapper #page #main .category-heading p {
+    padding-left: 0;
+  }
+  #page #main .recommended_products .b-1 {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    padding: 0;
+    margin-top: 0;
+  }
+  #page #main .recommended_products__base {
+    padding: 16px 0 20px;
+  }
+  #page #main .recommended_products__need {
+    padding: 20px 0 12px;
+  }
+  #page #main .recommended_products li {
+    padding: 6px 0;
+  }
+  #page #main .recommended_products li > a {
+    margin-right: 12px;
+  }
+  .btn_back_quiz {
+    margin-top: 20px;
+  }
+  .btn_back_step {
+    margin-top: 0;
+    margin-right: auto;
+  }
+  .btn_next_step {
+    width: 100%;
+    max-width: 254px;
+  }
+}/*# sourceMappingURL=main.css.map */

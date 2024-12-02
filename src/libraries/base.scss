@@ -1,0 +1,56 @@
+$flex-display: flex;
+$align-items-center: center;
+$justify-content-between: space-between;
+$justify-content-center: center;
+
+@mixin flex-properties($display: null, $align-items: null, $justify-content: null) {
+    display: $display;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+html.fixed_body,
+.fixed_body body {
+    overflow: hidden!important;
+}
+
+/* flex */
+.d-flex {
+    @include flex-properties($display: $flex-display);
+}
+
+.items-center {
+    @include flex-properties($display: $flex-display, $align-items: $align-items-center);
+}
+
+.justify-between {
+    @include flex-properties($display: $flex-display, $justify-content: $justify-content-between);
+}
+
+.justify-center {
+    @include flex-properties($display: $flex-display, $justify-content: $justify-content-center);
+}
+
+.d-none {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+@media (min-width: 900px) {
+    .flex-lg-column-reverse {
+        @include flex-properties($display: $flex-display);
+        flex-direction: column-reverse;
+    }
+    .justify-lg-center {
+        @include flex-properties($display: $flex-display, $justify-content: $justify-content-center);
+    }
+}
+
+@media (min-width: 768px){
+  .d-md-flex {
+    display: flex;
+  }
+}

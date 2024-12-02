@@ -1,0 +1,48 @@
+html.fixed_body,
+.fixed_body body {
+  overflow: hidden !important;
+}
+
+/* flex */
+.d-flex {
+  display: flex;
+}
+
+.items-center {
+  display: flex;
+  align-items: center;
+}
+
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.d-none {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .flex-lg-column-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .justify-lg-center {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (min-width: 768px) {
+  .d-md-flex {
+    display: flex;
+  }
+}/*# sourceMappingURL=base.css.map */

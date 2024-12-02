@@ -1,0 +1,35 @@
+// Змінні для значень CSS
+$flex-display: flex;
+$align-items-center: center;
+$justify-content-between: space-between;
+$justify-content-center: center;
+
+// Міксіни для створення класів
+@mixin flex-properties($display: null, $align-items: null, $justify-content: null) {
+    display: $display;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+// Класи, які використовують міксіни зі змінними
+.items-center {
+    @include flex-properties($display: $flex-display, $align-items: $align-items-center);
+}
+
+.justify-between {
+    @include flex-properties($display: $flex-display, $justify-content: $justify-content-between);
+}
+
+.justify-center {
+    @include flex-properties($display: $flex-display, $justify-content: $justify-content-center);
+}
+
+@media (min-width: 900px) {
+    .flex-lg-column-reverse {
+        @include flex-properties($display: $flex-display);
+        flex-direction: column-reverse;
+    }
+    .justify-lg-center {
+        @include flex-properties($display: $flex-display, $justify-content: $justify-content-center);
+    }
+}

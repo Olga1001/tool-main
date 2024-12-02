@@ -1,0 +1,270 @@
+#page {
+  margin-top: 0;
+}
+.select-color #color-display-table .color-box span,
+.select-color #color-display-table td.color-info input,
+#color-display-table tr {
+  cursor: pointer!important;
+}
+
+.select-color ul#benefit-list li {
+  & .warning-sign {
+    margin-top: 2px;
+  }
+  & span {
+    color: var(--www-paintscratch-com-black, #000);
+    font-family: Arial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+    margin-left: 12px;
+  }
+}
+
+.select-color #main span.instructions {
+  display: none!important;
+  & + p {
+    display: none!important;
+  }
+}
+
+#main h3 {
+  color: var(--www-paintscratch-com-black, #000);
+  font-family: Arial;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px; 
+  margin-bottom: 16px!important;
+  margin-top: 24px!important;
+}
+
+#page #main .crs_accordion {
+  &_current {
+    color: #00E;
+    font-family: Arial;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    padding: 7px 12px;
+    background: #F4F4F8;
+    position: relative;
+    cursor: pointer;
+    &:after {
+      content: '+';
+      color: #3D3DF0;
+      text-align: center;
+      font-family: Arial;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+      width: 24px;
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &_content {
+    display: none;
+    background: #F4F4F8;
+    padding: 12px;
+    border-top: 2px solid #fff;
+    & p {
+      color: #000;
+      font-family: Arial;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+      margin: 0;
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+  }
+  &.active .crs_accordion_current:after {
+    content: '-';
+  }
+  &.active .crs_accordion_content {
+    display: block;
+  }
+}
+
+.crs_images {
+  &_left {
+    border-radius: 4px;
+    border: 1px solid #E9E9E9;
+    max-width: 300px;
+    width: 100%;
+    margin-right: 24px;
+    margin-right: auto;
+    height: fit-content;
+    margin-bottom: 16px;
+  }
+  &_right {
+    max-width: 290px;
+    width: 100%;
+    height: fit-content;
+    & div {
+      margin-bottom: 16px;
+    }
+  }
+  img {
+    width: 100%;
+    cursor: pointer;
+  }
+}
+.crs_icon_zoom {
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  right: 12px;
+  bottom: 12px;
+  pointer-events: none;
+}
+
+.crs_video {
+  padding: 8px 0 16px;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  cursor: pointer;
+  & svg {
+    margin-right: 8px;
+  }
+  & span {
+    color: var(--www-paintscratch-com-blue, #00E);
+    font-family: Arial;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+  }
+}
+
+.crs_popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(39, 48, 56, 0.65);
+  backdrop-filter: blur(5px);
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 999;
+  overflow-y: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+    & .crs_popup_container {
+      transform: translateY(0);
+    }
+  }
+  & iframe {
+    height: 338px;
+  }
+  &_container {
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+    img {
+      width: 100%;
+      background-color: #fff;
+    }
+  }
+  &_head {
+    background: #0373BD;
+    padding: 12px;
+    color: var(--White, #FFF);
+    text-align: center;
+    font-family: Arial;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; 
+    position: relative;
+    min-height: 26px;
+    & svg {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      cursor: pointer;
+    }
+  }
+}
+
+.crs_read_more {
+  cursor: pointer;
+  color: rgb(0, 0, 238);
+  text-decoration: underline;
+}
+
+.relative {
+  position: relative;
+}
+
+@media screen and (min-width: 769px) {
+  .d-lg-flex {
+    display: flex;
+  }
+  #page #main {
+    padding-right: 32px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #page #main p, #page #main h3 + p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .select-color ul#benefit-list li span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  #main h3 {
+    font-size: 16px!important;
+    line-height: 24px;
+  }
+  .crs_accordion_current {
+    padding: 11px 12px;
+  }
+  .crs_images_row > div {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .crs_video span {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .crs_popup iframe {
+    height: 300px;
+  }
+  #color_search_pop a.action-button-orange {
+    margin-left: 0!important;
+    width: 100%;
+  }
+  .crs_images_right {
+    max-width: 300px;
+  }
+  .select-color ul#benefit-list li#guarantee_benefit_li {
+    align-items: flex-start;
+  }
+  .green-check-mark {
+    width: 22px;
+  }
+}
