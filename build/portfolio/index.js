@@ -282,6 +282,17 @@
           collections: "react"
         }
       }
+    },
+    pixi: {
+      variants: {
+        0: {
+          images: ["/zombi-main.png"],
+          title: "Zombi game",
+          gitHubCode: "",
+          description: "",
+          collections: "pixi"
+        }
+      }
     }
   }, I = () => {
     var e;
@@ -361,8 +372,8 @@
     if (r !== "all")
       for (const [o, l] of Object.entries(i)) {
         const c = {};
-        for (const [v, m] of Object.entries(l.variants))
-          (a = m.collections) != null && a.split(",").map((g) => g.trim()).includes(r) && (c[v] = m);
+        for (const [v, u] of Object.entries(l.variants))
+          (a = u.collections) != null && a.split(",").map((g) => g.trim()).includes(r) && (c[v] = u);
         Object.keys(c).length > 0 && (e[o] = { variants: c });
       }
     for (const o in e) {
@@ -467,15 +478,15 @@
               this.addElementBackgroundImages(J);
           }
         };
-        const m = /url\((['"])?(.*?)\1\)/gi;
+        const u = /url\((['"])?(.*?)\1\)/gi;
         c.prototype.addElementBackgroundImages = function(t) {
           let s = getComputedStyle(t);
           if (!s)
             return;
-          let p = m.exec(s.backgroundImage);
+          let p = u.exec(s.backgroundImage);
           for (; p !== null; ) {
             let d = p && p[2];
-            d && this.addBackground(d, t), p = m.exec(s.backgroundImage);
+            d && this.addBackground(d, t), p = u.exec(s.backgroundImage);
           }
         }, c.prototype.addImage = function(t) {
           let s = new g(t);
@@ -888,7 +899,7 @@ a:hover svg {\r
   }, W = () => {
     const i = h(".masonry");
     E(i, () => {
-      u.msnry ? (u.msnry.reloadItems(), u.msnry.layout()) : u.msnry = P();
+      m.msnry ? (m.msnry.reloadItems(), m.msnry.layout()) : m.msnry = P();
     });
   }, j = (i) => {
     let r = window.location.pathname + "?" + i;
@@ -925,8 +936,8 @@ a:hover svg {\r
       });
     }
   }
-  const u = new G();
-  u.msnry = P(), setTimeout(() => {
+  const m = new G();
+  m.msnry = P(), setTimeout(() => {
     document.body.classList.add("init");
   }, 300);
   class C {

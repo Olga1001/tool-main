@@ -301,5 +301,16 @@ export const dataItemsPortfolio: Portfolio = {
         collections: 'react'
       },
     }
+  },
+  'pixi': {
+    variants: {
+      0: {
+        images: ['/zombi-main.png'],
+        title: 'Zombi game',
+        gitHubCode: '',
+        description: ``,
+        collections: 'pixi'
+      }
+    }
   }
 }
