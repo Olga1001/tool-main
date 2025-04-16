@@ -286,9 +286,16 @@ export const dataItemsPortfolio: Portfolio = {
   'react': {
     variants: {
       0: {
-        images: ['/catalog.png','/cart.webp','/checkout.png'],
+        images: ['/catalog.png','/cart.png','/checkout.png'],
         link: 'https://miway.netlify.app/catalog',
-        title: 'React',
+        title: 'Miway',
+        gitHubCode: '',
+        description: ``,
+        collections: 'react'
+      },
+      1: {
+        images: ['/marvel-catalog.png','/comics.png','/comic.png'],
+        title: 'Marvel',
         gitHubCode: '',
         description: ``,
         collections: 'react'
