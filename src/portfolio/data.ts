@@ -283,4 +283,16 @@ export const dataItemsPortfolio: Portfolio = {
       },
     }
   },
+  'react': {
+    variants: {
+      0: {
+        images: ['/catalog.png','/cart.webp','/checkout.png'],
+        link: 'https://miway.netlify.app/catalog',
+        title: 'React',
+        gitHubCode: '',
+        description: ``,
+        collections: 'react'
+      },
+    }
+  }
 }

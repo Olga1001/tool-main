@@ -1,11 +1,11 @@
 (function() {
   "use strict";
-  const A = ({ name: o, dev: n }) => {
+  const A = ({ name: i, dev: r }) => {
     console.log(
-      `%c EXP: ${o} (DEV: ${n})`,
+      `%c EXP: ${i} (DEV: ${r})`,
       "background: #3498eb; color: #fccf3a; font-size: 20px; font-weight: bold;"
     );
-  }, w = (o) => document.querySelectorAll(o), h = (o) => document.querySelector(o), y = "../src/portfolio/assets/", k = {
+  }, w = (i) => document.querySelectorAll(i), h = (i) => document.querySelector(i), y = "../src/portfolio/assets/", k = {
     arrowLeft: (
       /*html */
       `
@@ -263,32 +263,44 @@
           collections: "html"
         }
       }
+    },
+    react: {
+      variants: {
+        0: {
+          images: ["/catalog.png", "/cart.webp", "/checkout.png"],
+          link: "https://miway.netlify.app/catalog",
+          title: "React",
+          gitHubCode: "",
+          description: "",
+          collections: "react"
+        }
+      }
     }
   }, I = () => {
     var e;
-    const o = /* @__PURE__ */ new Set();
-    for (const i in b) {
-      const a = b[i].variants;
-      for (const r in a) {
-        const l = (e = a[r].collections) == null ? void 0 : e.split(",").map((c) => c.trim());
-        l == null || l.forEach((c) => o.add(c));
+    const i = /* @__PURE__ */ new Set();
+    for (const n in b) {
+      const a = b[n].variants;
+      for (const o in a) {
+        const l = (e = a[o].collections) == null ? void 0 : e.split(",").map((c) => c.trim());
+        l == null || l.forEach((c) => i.add(c));
       }
     }
-    let n = '<li><a href="#" data-filter="all" class="active">All</a></li>';
-    return o.forEach((i) => {
-      n += `<li><a href="#" data-filter="${i}">${i}</a></li>`;
-    }), `<ul class="d-flex">${n}</ul>`;
+    let r = '<li><a href="#" data-filter="all" class="active">All</a></li>';
+    return i.forEach((n) => {
+      r += `<li><a href="#" data-filter="${n}">${n}</a></li>`;
+    }), `<ul class="d-flex">${r}</ul>`;
   }, B = () => {
-    let o = "";
-    for (const n in b) {
-      const e = b[n].variants;
-      for (const i in e) {
-        const a = e[i].images[0], r = e[i].collections;
-        o += `
-                <div class="portfolio_item item-masonry ${e[i].classes ? e[i].classes : "width-25"}" data-collections="${r}">
-                    <a href="?product=${n}&variant=${i}">
+    let i = "";
+    for (const r in b) {
+      const e = b[r].variants;
+      for (const n in e) {
+        const a = e[n].images[0], o = e[n].collections;
+        i += `
+                <div class="portfolio_item item-masonry ${e[n].classes ? e[n].classes : "width-25"}" data-collections="${o}">
+                    <a href="?product=${r}&variant=${n}">
                         <span>
-                            <img src="${y + "images/" + n + a}" alt="${n} image">
+                            <img src="${y + "images/" + r + a}" alt="${r} image">
                         </span>
                     </a>
                 </div>`;
@@ -305,14 +317,14 @@
                 <nav class="nav">
                     ${I()}
                 </nav>
-                <div class="portfolio_list masonry">${o}</div>
+                <div class="portfolio_list masonry">${i}</div>
             <div>
         </div>`;
-  }, $ = (o, n) => {
-    const e = b[o].variants[n], i = e.images;
+  }, H = (i, r) => {
+    const e = b[i].variants[r], n = e.images;
     let a = "";
-    for (let r = 0; r < i.length; r++)
-      a += `<div class="swiper-slide"><img src="${y + "images/" + o + i[r]}" alt="image"></div>`;
+    for (let o = 0; o < n.length; o++)
+      a += `<div class="swiper-slide"><img src="${y + "images/" + i + n[o]}" alt="image"></div>`;
     return `
         <div class="product">
             <div class="d-flex">
@@ -335,73 +347,73 @@
                 </div>
             </div>
         </div>`;
-  }, H = (o, n) => {
+  }, $ = (i, r) => {
     var a;
-    const e = n === "all" ? b : {};
-    let i = "";
-    if (n !== "all")
-      for (const [r, l] of Object.entries(o)) {
+    const e = r === "all" ? b : {};
+    let n = "";
+    if (r !== "all")
+      for (const [o, l] of Object.entries(i)) {
         const c = {};
         for (const [v, m] of Object.entries(l.variants))
-          (a = m.collections) != null && a.split(",").map((g) => g.trim()).includes(n) && (c[v] = m);
-        Object.keys(c).length > 0 && (e[r] = { variants: c });
+          (a = m.collections) != null && a.split(",").map((g) => g.trim()).includes(r) && (c[v] = m);
+        Object.keys(c).length > 0 && (e[o] = { variants: c });
       }
-    for (const r in e) {
-      let l = e[r].variants;
+    for (const o in e) {
+      let l = e[o].variants;
       for (const c in l)
-        i += `
+        n += `
                 <div class="portfolio_item item-masonry ${l[c].classes ? l[c].classes : "width-25"}" data-collections="${l[c].collections}">
-                    <a href="?product=${r}&variant=${c}">
+                    <a href="?product=${o}&variant=${c}">
                         <span>
-                            <img src="${y + "images/" + r + l[c].images[0]}" alt="${r} image">
+                            <img src="${y + "images/" + o + l[c].images[0]}" alt="${o} image">
                         </span>
                     </a>
                 </div>`;
     }
-    return i;
+    return n;
   };
   var L = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
-  function O(o) {
-    return o && o.__esModule && Object.prototype.hasOwnProperty.call(o, "default") ? o.default : o;
+  function O(i) {
+    return i && i.__esModule && Object.prototype.hasOwnProperty.call(i, "default") ? i.default : i;
   }
   var _ = { exports: {} }, x = { exports: {} }, S;
   function M() {
-    return S || (S = 1, function(o) {
-      (function(n, e) {
-        o.exports ? o.exports = e() : n.EvEmitter = e();
+    return S || (S = 1, function(i) {
+      (function(r, e) {
+        i.exports ? i.exports = e() : r.EvEmitter = e();
       })(typeof window < "u" ? window : L, function() {
-        function n() {
+        function r() {
         }
-        let e = n.prototype;
-        return e.on = function(i, a) {
-          if (!i || !a)
+        let e = r.prototype;
+        return e.on = function(n, a) {
+          if (!n || !a)
             return this;
-          let r = this._events = this._events || {}, l = r[i] = r[i] || [];
+          let o = this._events = this._events || {}, l = o[n] = o[n] || [];
           return l.includes(a) || l.push(a), this;
-        }, e.once = function(i, a) {
-          if (!i || !a)
+        }, e.once = function(n, a) {
+          if (!n || !a)
             return this;
-          this.on(i, a);
-          let r = this._onceEvents = this._onceEvents || {}, l = r[i] = r[i] || {};
+          this.on(n, a);
+          let o = this._onceEvents = this._onceEvents || {}, l = o[n] = o[n] || {};
           return l[a] = !0, this;
-        }, e.off = function(i, a) {
-          let r = this._events && this._events[i];
-          if (!r || !r.length)
+        }, e.off = function(n, a) {
+          let o = this._events && this._events[n];
+          if (!o || !o.length)
             return this;
-          let l = r.indexOf(a);
-          return l != -1 && r.splice(l, 1), this;
-        }, e.emitEvent = function(i, a) {
-          let r = this._events && this._events[i];
-          if (!r || !r.length)
+          let l = o.indexOf(a);
+          return l != -1 && o.splice(l, 1), this;
+        }, e.emitEvent = function(n, a) {
+          let o = this._events && this._events[n];
+          if (!o || !o.length)
             return this;
-          r = r.slice(0), a = a || [];
-          let l = this._onceEvents && this._onceEvents[i];
-          for (let c of r)
-            l && l[c] && (this.off(i, c), delete l[c]), c.apply(this, a);
+          o = o.slice(0), a = a || [];
+          let l = this._onceEvents && this._onceEvents[n];
+          for (let c of o)
+            l && l[c] && (this.off(n, c), delete l[c]), c.apply(this, a);
           return this;
         }, e.allOff = function() {
           return delete this._events, delete this._onceEvents, this;
-        }, n;
+        }, r;
       });
     }(x)), x.exports;
   }
@@ -410,13 +422,13 @@
    * JavaScript is all like "You images are done yet or what?"
    * MIT License
    */
-  (function(o) {
-    (function(n, e) {
-      o.exports ? o.exports = e(n, M()) : n.imagesLoaded = e(n, n.EvEmitter);
+  (function(i) {
+    (function(r, e) {
+      i.exports ? i.exports = e(r, M()) : r.imagesLoaded = e(r, r.EvEmitter);
     })(
       typeof window < "u" ? window : L,
-      function(e, i) {
-        let a = e.jQuery, r = e.console;
+      function(e, n) {
+        let a = e.jQuery, o = e.console;
         function l(t) {
           return Array.isArray(t) ? t : typeof t == "object" && typeof t.length == "number" ? [...t] : [t];
         }
@@ -425,12 +437,12 @@
             return new c(t, s, p);
           let d = t;
           if (typeof t == "string" && (d = document.querySelectorAll(t)), !d) {
-            r.error(`Bad element for imagesLoaded ${d || t}`);
+            o.error(`Bad element for imagesLoaded ${d || t}`);
             return;
           }
           this.elements = l(d), this.options = {}, typeof s == "function" ? p = s : Object.assign(this.options, s), p && this.on("always", p), this.getImages(), a && (this.jqDeferred = new a.Deferred()), setTimeout(this.check.bind(this));
         }
-        c.prototype = Object.create(i.prototype), c.prototype.getImages = function() {
+        c.prototype = Object.create(n.prototype), c.prototype.getImages = function() {
           this.images = [], this.elements.forEach(this.addElementImages, this);
         };
         const v = [1, 9, 11];
@@ -444,8 +456,8 @@
             this.addImage(d);
           if (typeof this.options.background == "string") {
             let d = t.querySelectorAll(this.options.background);
-            for (let J of d)
-              this.addElementBackgroundImages(J);
+            for (let R of d)
+              this.addElementBackgroundImages(R);
           }
         };
         const m = /url\((['"])?(.*?)\1\)/gi;
@@ -478,7 +490,7 @@
             s.once("progress", t), s.check();
           });
         }, c.prototype.progress = function(t, s, p) {
-          this.progressedCount++, this.hasAnyBroken = this.hasAnyBroken || !t.isLoaded, this.emitEvent("progress", [this, t, s]), this.jqDeferred && this.jqDeferred.notify && this.jqDeferred.notify(this, t), this.progressedCount === this.images.length && this.complete(), this.options.debug && r && r.log(`progress: ${p}`, t, s);
+          this.progressedCount++, this.hasAnyBroken = this.hasAnyBroken || !t.isLoaded, this.emitEvent("progress", [this, t, s]), this.jqDeferred && this.jqDeferred.notify && this.jqDeferred.notify(this, t), this.progressedCount === this.images.length && this.complete(), this.options.debug && o && o.log(`progress: ${p}`, t, s);
         }, c.prototype.complete = function() {
           let t = this.hasAnyBroken ? "fail" : "done";
           if (this.isComplete = !0, this.emitEvent(t, [this]), this.emitEvent("always", [this]), this.jqDeferred) {
@@ -489,7 +501,7 @@
         function g(t) {
           this.img = t;
         }
-        g.prototype = Object.create(i.prototype), g.prototype.check = function() {
+        g.prototype = Object.create(n.prototype), g.prototype.check = function() {
           if (this.getIsImageComplete()) {
             this.confirm(this.img.naturalWidth !== 0, "naturalWidth");
             return;
@@ -529,351 +541,351 @@
     );
   })(_);
   var T = _.exports;
-  const E = /* @__PURE__ */ O(T), D = `html.fixed_body,
-.fixed_body body {
-  overflow: hidden !important;
-}
-
-/* flex */
-.d-flex {
-  display: flex;
-}
-
-.items-center {
-  display: flex;
-  align-items: center;
-}
-
-.justify-between {
-  display: flex;
-  justify-content: space-between;
-}
-
-.justify-center {
-  display: flex;
-  justify-content: center;
-}
-
-.d-none {
-  display: none;
-}
-
-.text-center {
-  text-align: center;
-}
-
-@media (min-width: 900px) {
-  .flex-lg-column-reverse {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-  .justify-lg-center {
-    display: flex;
-    justify-content: center;
-  }
-}
-@media (min-width: 768px) {
-  .d-md-flex {
-    display: flex;
-  }
-}/*# sourceMappingURL=base.css.map */`, z = `*, *:before, *:after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  color: #1e1e1e;
-  line-height: 1;
-}
-body:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  vertical-align: middle;
-  background-color: #fff;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
-}
-body.init:before {
-  content: none;
-}
-
-.container {
-  padding: 0 20px;
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-}
-
-h1, h3 {
-  color: #fff;
-  margin: 8px 0;
-}
-
-h2 {
-  padding: 20px 0;
-  font-size: 34px;
-  line-height: 1.4;
-}
-
-a {
-  text-decoration: none;
-}
-a svg {
-  margin-right: 8px;
-}
-a:hover {
-  color: orange;
-}
-a:hover svg {
-  fill: orange;
-}
-
-.item-masonry {
-  padding: 10px;
-}
-.item-masonry img {
-  display: block;
-}
-.item-masonry span {
-  background-color: #f5f5f5;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-  border-radius: 4px;
-  padding: 4px;
-  display: block;
-}
-
-.width-25 {
-  width: 25%;
-}
-
-.width-50 {
-  width: 50%;
-}
-
-/* PDP */
-.product {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100%;
-  overflow-y: auto;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.25s ease;
-  z-index: 99;
-}
-.product.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-.product.active .product_right, .product.active .product_left {
-  transform: translateX(0);
-}
-.product_left, .product_right {
-  width: 50%;
-  padding: 40px 60px;
-  min-height: 100vh;
-  transition: all 0.3s ease;
-}
-.product_left {
-  background-color: #6032a4;
-  transform: translateX(-100%);
-  box-shadow: 5px 5px 10px rgba(96, 50, 164, 0.4);
-  z-index: 2;
-}
-.product_right {
-  background-color: rgb(243, 243, 243);
-  transform: translateX(100%);
-}
-.product_gallery .swiper-slide {
-  height: -moz-fit-content;
-  height: fit-content;
-}
-.product_gallery img {
-  width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: top;
-     object-position: top;
-  margin-bottom: 7px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-}
-.product_info {
-  padding: 20px 0;
-  line-height: 22px;
-  position: sticky;
-  top: 40px;
-  height: -moz-fit-content;
-  height: fit-content;
-  font-size: 14px;
-  max-width: 500px;
-}
-
-.btn-back {
-  margin-bottom: 20px;
-  color: #fff;
-}
-.btn-back svg {
-  fill: #fff;
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
-
-.btn-close {
-  position: fixed;
-  top: 2.5%;
-  right: calc(2.5% + 5px);
-  transform: translateX(50%);
-  z-index: 99999;
-  border: 2px solid #fff;
-  padding: 8px;
-  background-color: transparent;
-  border-radius: 50%;
-  display: flex;
-}
-.btn-close svg {
-  fill: #fff;
-  width: 16px;
-  height: 16px;
-}
-
-.btn-zoom {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  z-index: 1;
-  background-color: transparent;
-  border-radius: 50%;
-  padding: 4px;
-  width: 32px;
-  height: 32px;
-  border: 2px solid #757575;
-  background-color: #fff;
-}
-.btn-zoom svg {
-  width: 16px;
-  height: 16px;
-}
-
-.nav {
-  padding: 10px;
-}
-.nav li {
-  list-style-type: none;
-  margin-right: 10px;
-}
-.nav li a {
-  display: block;
-  padding: 4px 8px;
-  line-height: 22px;
-  font-size: 16px;
-  border-radius: 16px;
-  min-width: 45px;
-  text-align: center;
-  color: #1e1e1e;
-  background-color: #f5f5f5;
-}
-.nav li a.active {
-  background-color: orange;
-  color: #fff;
-}
-
-/* portfolio */
-.portfolio {
-  padding: 20px 0;
-  background-color: #6032a4;
-  min-height: 100vh;
-}
-
-.c-orange {
-  color: orange;
-}
-
-@media screen and (min-width: 768px) {
-  .mySwiper .swiper-wrapper {
-    display: block !important;
-  }
-}
-@media screen and (max-width: 1440px) {
-  .nav_social {
-    right: 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .container {
-    padding: 0 10px;
-  }
-  h2 {
-    font-size: 18px;
-  }
-  .nav,
-  .item-masonry {
-    padding: 4px;
-  }
-  .width-25 {
-    width: 33.33%;
-  }
-  .width-50 {
-    width: 66.66%;
-  }
-  .product {
-    background-color: #6032a4;
-  }
-  .product_left, .product_right {
-    width: 100%;
-    padding: 14px;
-    min-height: auto;
-  }
-  .product_info {
-    padding: 0;
-    min-height: 300px;
-  }
-  .product > .d-flex {
-    flex-direction: column-reverse;
-  }
-  .btn-back {
-    color: #1e1e1e;
-    margin-bottom: 0;
-    margin-top: 10px;
-  }
-  .btn-back svg {
-    fill: #1e1e1e;
-  }
+  const E = /* @__PURE__ */ O(T), D = `html.fixed_body,\r
+.fixed_body body {\r
+  overflow: hidden !important;\r
+}\r
+\r
+/* flex */\r
+.d-flex {\r
+  display: flex;\r
+}\r
+\r
+.items-center {\r
+  display: flex;\r
+  align-items: center;\r
+}\r
+\r
+.justify-between {\r
+  display: flex;\r
+  justify-content: space-between;\r
+}\r
+\r
+.justify-center {\r
+  display: flex;\r
+  justify-content: center;\r
+}\r
+\r
+.d-none {\r
+  display: none;\r
+}\r
+\r
+.text-center {\r
+  text-align: center;\r
+}\r
+\r
+@media (min-width: 900px) {\r
+  .flex-lg-column-reverse {\r
+    display: flex;\r
+    flex-direction: column-reverse;\r
+  }\r
+  .justify-lg-center {\r
+    display: flex;\r
+    justify-content: center;\r
+  }\r
+}\r
+@media (min-width: 768px) {\r
+  .d-md-flex {\r
+    display: flex;\r
+  }\r
+}/*# sourceMappingURL=base.css.map */`, z = `*, *:before, *:after {\r
+  box-sizing: border-box;\r
+  padding: 0;\r
+  margin: 0;\r
+}\r
+\r
+body {\r
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";\r
+  color: #1e1e1e;\r
+  line-height: 1;\r
+}\r
+body:before {\r
+  content: "";\r
+  position: absolute;\r
+  left: 0;\r
+  top: 0;\r
+  vertical-align: middle;\r
+  background-color: #fff;\r
+  z-index: 99;\r
+  width: 100%;\r
+  height: 100%;\r
+}\r
+body.init:before {\r
+  content: none;\r
+}\r
+\r
+.container {\r
+  padding: 0 20px;\r
+  max-width: 1440px;\r
+  margin: 0 auto;\r
+}\r
+\r
+img {\r
+  width: 100%;\r
+  height: 100%;\r
+}\r
+\r
+h1, h3 {\r
+  color: #fff;\r
+  margin: 8px 0;\r
+}\r
+\r
+h2 {\r
+  padding: 20px 0;\r
+  font-size: 34px;\r
+  line-height: 1.4;\r
+}\r
+\r
+a {\r
+  text-decoration: none;\r
+}\r
+a svg {\r
+  margin-right: 8px;\r
+}\r
+a:hover {\r
+  color: orange;\r
+}\r
+a:hover svg {\r
+  fill: orange;\r
+}\r
+\r
+.item-masonry {\r
+  padding: 10px;\r
+}\r
+.item-masonry img {\r
+  display: block;\r
+}\r
+.item-masonry span {\r
+  background-color: #f5f5f5;\r
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);\r
+  border-radius: 4px;\r
+  padding: 4px;\r
+  display: block;\r
+}\r
+\r
+.width-25 {\r
+  width: 25%;\r
+}\r
+\r
+.width-50 {\r
+  width: 50%;\r
+}\r
+\r
+/* PDP */\r
+.product {\r
+  position: fixed;\r
+  left: 0;\r
+  top: 0;\r
+  height: 100vh;\r
+  width: 100%;\r
+  overflow-y: auto;\r
+  opacity: 0;\r
+  pointer-events: none;\r
+  transition: all 0.25s ease;\r
+  z-index: 99;\r
+}\r
+.product.active {\r
+  opacity: 1;\r
+  pointer-events: auto;\r
+}\r
+.product.active .product_right, .product.active .product_left {\r
+  transform: translateX(0);\r
+}\r
+.product_left, .product_right {\r
+  width: 50%;\r
+  padding: 40px 60px;\r
+  min-height: 100vh;\r
+  transition: all 0.3s ease;\r
+}\r
+.product_left {\r
+  background-color: #6032a4;\r
+  transform: translateX(-100%);\r
+  box-shadow: 5px 5px 10px rgba(96, 50, 164, 0.4);\r
+  z-index: 2;\r
+}\r
+.product_right {\r
+  background-color: rgb(243, 243, 243);\r
+  transform: translateX(100%);\r
+}\r
+.product_gallery .swiper-slide {\r
+  height: -moz-fit-content;\r
+  height: fit-content;\r
+}\r
+.product_gallery img {\r
+  width: 100%;\r
+  -o-object-fit: contain;\r
+     object-fit: contain;\r
+  -o-object-position: top;\r
+     object-position: top;\r
+  margin-bottom: 7px;\r
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);\r
+}\r
+.product_info {\r
+  padding: 20px 0;\r
+  line-height: 22px;\r
+  position: sticky;\r
+  top: 40px;\r
+  height: -moz-fit-content;\r
+  height: fit-content;\r
+  font-size: 14px;\r
+  max-width: 500px;\r
+}\r
+\r
+.btn-back {\r
+  margin-bottom: 20px;\r
+  color: #fff;\r
+}\r
+.btn-back svg {\r
+  fill: #fff;\r
+  width: 20px;\r
+  height: 20px;\r
+  margin-right: 8px;\r
+}\r
+\r
+.btn-close {\r
+  position: fixed;\r
+  top: 2.5%;\r
+  right: calc(2.5% + 5px);\r
+  transform: translateX(50%);\r
+  z-index: 99999;\r
+  border: 2px solid #fff;\r
+  padding: 8px;\r
+  background-color: transparent;\r
+  border-radius: 50%;\r
+  display: flex;\r
+}\r
+.btn-close svg {\r
+  fill: #fff;\r
+  width: 16px;\r
+  height: 16px;\r
+}\r
+\r
+.btn-zoom {\r
+  position: absolute;\r
+  right: 10px;\r
+  bottom: 10px;\r
+  z-index: 1;\r
+  background-color: transparent;\r
+  border-radius: 50%;\r
+  padding: 4px;\r
+  width: 32px;\r
+  height: 32px;\r
+  border: 2px solid #757575;\r
+  background-color: #fff;\r
+}\r
+.btn-zoom svg {\r
+  width: 16px;\r
+  height: 16px;\r
+}\r
+\r
+.nav {\r
+  padding: 10px;\r
+}\r
+.nav li {\r
+  list-style-type: none;\r
+  margin-right: 10px;\r
+}\r
+.nav li a {\r
+  display: block;\r
+  padding: 4px 8px;\r
+  line-height: 22px;\r
+  font-size: 16px;\r
+  border-radius: 16px;\r
+  min-width: 45px;\r
+  text-align: center;\r
+  color: #1e1e1e;\r
+  background-color: #f5f5f5;\r
+}\r
+.nav li a.active {\r
+  background-color: orange;\r
+  color: #fff;\r
+}\r
+\r
+/* portfolio */\r
+.portfolio {\r
+  padding: 20px 0;\r
+  background-color: #6032a4;\r
+  min-height: 100vh;\r
+}\r
+\r
+.c-orange {\r
+  color: orange;\r
+}\r
+\r
+@media screen and (min-width: 768px) {\r
+  .mySwiper .swiper-wrapper {\r
+    display: block !important;\r
+  }\r
+}\r
+@media screen and (max-width: 1440px) {\r
+  .nav_social {\r
+    right: 20px;\r
+  }\r
+}\r
+@media screen and (max-width: 767px) {\r
+  .container {\r
+    padding: 0 10px;\r
+  }\r
+  h2 {\r
+    font-size: 18px;\r
+  }\r
+  .nav,\r
+  .item-masonry {\r
+    padding: 4px;\r
+  }\r
+  .width-25 {\r
+    width: 33.33%;\r
+  }\r
+  .width-50 {\r
+    width: 66.66%;\r
+  }\r
+  .product {\r
+    background-color: #6032a4;\r
+  }\r
+  .product_left, .product_right {\r
+    width: 100%;\r
+    padding: 14px;\r
+    min-height: auto;\r
+  }\r
+  .product_info {\r
+    padding: 0;\r
+    min-height: 300px;\r
+  }\r
+  .product > .d-flex {\r
+    flex-direction: column-reverse;\r
+  }\r
+  .btn-back {\r
+    color: #1e1e1e;\r
+    margin-bottom: 0;\r
+    margin-top: 10px;\r
+  }\r
+  .btn-back svg {\r
+    fill: #1e1e1e;\r
+  }\r
 }/*# sourceMappingURL=main.css.map */`;
   A({ name: "Portfolio", dev: "Olha Zhuravel" }), document.head.insertAdjacentHTML("beforeend", `<style>${D}</style>`), document.head.insertAdjacentHTML("beforeend", `<style>${z}</style>`);
   const q = window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop", P = () => {
-    let o = setInterval(() => {
+    let i = setInterval(() => {
       if (typeof Masonry == "function") {
-        clearInterval(o);
-        const n = h(".masonry"), e = new Masonry(n, {
+        clearInterval(i);
+        const r = h(".masonry"), e = new Masonry(r, {
           itemSelector: ".item-masonry",
           columnWidth: ".width-25",
           percentPosition: !0
         });
-        return E(n, () => {
+        return E(r, () => {
           e.layout();
         }), e;
       }
     });
   }, W = () => {
-    const o = h(".masonry");
-    E(o, () => {
+    const i = h(".masonry");
+    E(i, () => {
       u.msnry ? (u.msnry.reloadItems(), u.msnry.layout()) : u.msnry = P();
     });
-  }, j = (o) => {
-    let n = window.location.pathname + "?" + o;
-    history.pushState(null, "", n);
+  }, j = (i) => {
+    let r = window.location.pathname + "?" + i;
+    history.pushState(null, "", r);
   };
   class G {
     constructor() {
@@ -886,21 +898,21 @@ a:hover svg {
       h(".wrapper").insertAdjacentHTML("beforeend", B());
     }
     clickOnProject() {
-      w(".portfolio_item a").forEach((n, e) => {
-        n.addEventListener("click", (i) => {
-          i.preventDefault(), i.stopPropagation();
-          let a = n.search.split("product=")[1].split("&")[0], r = n.search.split("variant=")[1], l = "product=" + a + "&variant=" + r;
-          j(l), new C(a, r);
+      w(".portfolio_item a").forEach((r, e) => {
+        r.addEventListener("click", (n) => {
+          n.preventDefault(), n.stopPropagation();
+          let a = r.search.split("product=")[1].split("&")[0], o = r.search.split("variant=")[1], l = "product=" + a + "&variant=" + o;
+          j(l), new C(a, o);
         });
       });
     }
     nav() {
-      w("nav a[data-filter]").forEach((n) => {
-        n.addEventListener("click", (e) => {
-          if (e.preventDefault(), n.classList.contains("active"))
+      w("nav a[data-filter]").forEach((r) => {
+        r.addEventListener("click", (e) => {
+          if (e.preventDefault(), r.classList.contains("active"))
             return;
-          h("nav a.active").classList.remove("active"), n.classList.add("active");
-          const i = n.dataset.filter, a = H(b, i);
+          h("nav a.active").classList.remove("active"), r.classList.add("active");
+          const n = r.dataset.filter, a = $(b, n);
           h(".portfolio_list").innerHTML = a, W(), this.clickOnProject();
         });
       });
@@ -911,25 +923,25 @@ a:hover svg {
     document.body.classList.add("init");
   }, 300);
   class C {
-    constructor(n, e) {
-      this.namePDP = n, this.variantPDP = e, this.init();
+    constructor(r, e) {
+      this.namePDP = r, this.variantPDP = e, this.init();
     }
     init() {
       this.addPDP(), this.clickBack(), h("html").classList.add("fixed_body");
     }
     addPDP() {
       var e;
-      (e = h(".product")) == null || e.remove(), document.body.insertAdjacentHTML("afterbegin", $(this.namePDP, this.variantPDP)), q === "mobile" && h(".product_info").before(h(".product .btn-back")), setTimeout(() => {
+      (e = h(".product")) == null || e.remove(), document.body.insertAdjacentHTML("afterbegin", H(this.namePDP, this.variantPDP)), q === "mobile" && h(".product_info").before(h(".product .btn-back")), setTimeout(() => {
         h(".product").classList.add("active");
       }, 300);
-      const n = () => {
+      const r = () => {
         h(".product").style.height = window.innerHeight + "px";
       };
-      window.addEventListener("resize", n), n();
+      window.addEventListener("resize", r), r();
     }
     clickBack() {
-      h(".product .btn-back").addEventListener("click", (n) => {
-        n.preventDefault(), h(".product").classList.remove("active"), setTimeout(() => {
+      h(".product .btn-back").addEventListener("click", (r) => {
+        r.preventDefault(), h(".product").classList.remove("active"), setTimeout(() => {
           var e;
           (e = h(".product")) == null || e.remove();
         }, 300), h("html").classList.remove("fixed_body"), j("");
@@ -937,8 +949,8 @@ a:hover svg {
     }
   }
   if (window.location.href.includes("?product")) {
-    const o = window.location.href.split("product=")[1].split("&")[0], n = window.location.href.split("variant=")[1].replace("#", "");
-    new C(o, n);
+    const i = window.location.href.split("product=")[1].split("&")[0], r = window.location.href.split("variant=")[1].replace("#", "");
+    new C(i, r);
   }
 })();
 //# sourceMappingURL=index.js.map
