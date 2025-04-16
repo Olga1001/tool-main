@@ -267,9 +267,16 @@
     react: {
       variants: {
         0: {
-          images: ["/catalog.png", "/cart.webp", "/checkout.png"],
+          images: ["/catalog.png", "/cart.png", "/checkout.png"],
           link: "https://miway.netlify.app/catalog",
-          title: "React",
+          title: "Miway",
+          gitHubCode: "",
+          description: "",
+          collections: "react"
+        },
+        1: {
+          images: ["/marvel-catalog.png", "/comics.png", "/comic.png"],
+          title: "Marvel",
           gitHubCode: "",
           description: "",
           collections: "react"
@@ -373,11 +380,11 @@
     return n;
   };
   var L = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
-  function O(i) {
+  function M(i) {
     return i && i.__esModule && Object.prototype.hasOwnProperty.call(i, "default") ? i.default : i;
   }
   var _ = { exports: {} }, x = { exports: {} }, S;
-  function M() {
+  function O() {
     return S || (S = 1, function(i) {
       (function(r, e) {
         i.exports ? i.exports = e() : r.EvEmitter = e();
@@ -424,7 +431,7 @@
    */
   (function(i) {
     (function(r, e) {
-      i.exports ? i.exports = e(r, M()) : r.imagesLoaded = e(r, r.EvEmitter);
+      i.exports ? i.exports = e(r, O()) : r.imagesLoaded = e(r, r.EvEmitter);
     })(
       typeof window < "u" ? window : L,
       function(e, n) {
@@ -456,8 +463,8 @@
             this.addImage(d);
           if (typeof this.options.background == "string") {
             let d = t.querySelectorAll(this.options.background);
-            for (let R of d)
-              this.addElementBackgroundImages(R);
+            for (let J of d)
+              this.addElementBackgroundImages(J);
           }
         };
         const m = /url\((['"])?(.*?)\1\)/gi;
@@ -541,7 +548,7 @@
     );
   })(_);
   var T = _.exports;
-  const E = /* @__PURE__ */ O(T), D = `html.fixed_body,\r
+  const E = /* @__PURE__ */ M(T), D = `html.fixed_body,\r
 .fixed_body body {\r
   overflow: hidden !important;\r
 }\r
