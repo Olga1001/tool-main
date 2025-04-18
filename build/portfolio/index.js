@@ -269,13 +269,13 @@
         0: {
           images: ["/catalog.png", "/cart.png", "/checkout.png"],
           link: "https://miway.netlify.app/catalog",
-          title: "Miway",
+          title: "Miway (САЙТ НА СТАДІЇ РОЗРОБКИ)",
           gitHubCode: "",
-          description: `<b>СТОРІНКА НА СТАДІЇ РОЗРОБКИ</b> <br>
-        Інтернет-магазин з адміністративною панеллю <br>
+          description: `<b>САЙТ НА СТАДІЇ РОЗРОБКИ</b> <br>
+        Інтернет-магазин з адміністративною панеллю <br><br>
 <b>Технології:</b> React, Redux Toolkit, Formik, React Router, Yup, Express.js, MongoDB, Netlify Functions, Telegram API<br>
-
-Розроблено повноцінний веб-додаток інтернет-магазину з фронтендом на React та бекендом на Node.js (Express).<br><br>
+<br>
+Інтернет-магазин з фронтендом на React та бекендом на Node.js (Express).<br><br>
 <b>Функціональність клієнтської частини:</b><br><br>
 -Авторизація адміністратора з перевіркою токена через JWT.<br>
 
