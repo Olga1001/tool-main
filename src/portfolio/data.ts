@@ -291,12 +291,10 @@ export const dataItemsPortfolio: Portfolio = {
         title: 'Miway',
         gitHubCode: '',
         description: `<b>СТОРІНКА НА СТАДІЇ РОЗРОБКИ</b> <br>
-        Інтернет-магазин з адміністративною панеллю
+        Інтернет-магазин з адміністративною панеллю <br>
 <b>Технології:</b> React, Redux Toolkit, Formik, React Router, Yup, Express.js, MongoDB, Netlify Functions, Telegram API<br>
 
 Розроблено повноцінний веб-додаток інтернет-магазину з фронтендом на React та бекендом на Node.js (Express).<br><br>
-⠀
-
 <b>Функціональність клієнтської частини:</b><br><br>
 -Авторизація адміністратора з перевіркою токена через JWT.<br>
 
@@ -312,7 +310,7 @@ export const dataItemsPortfolio: Portfolio = {
 
 -Lazy loading компонентів з React.lazy та Suspense.<br>
 
--Телеграм-бот надсилає повідомлення про нові успішні замовлення в канал.<br><br>
+-Успішні замовлення надсилаються в Телеграм-бот канал.<br><br>
 
 <b>Бекенд:</b><br><br>
 -Реалізовано на Express.js, з підключенням до бази даних MongoDB.<br>
