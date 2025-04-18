@@ -1,7 +1,7 @@
 import { startLog, $$el, $el } from '../libraries'
 import { dataItemsPortfolio } from './data'
 import { addPortfolioSection, pdpHTML, filterPortfolioItems } from './blocks'
-// import imagesLoaded from 'imagesloaded';
+import imagesLoaded from 'imagesloaded';
 
 
 // @ts-ignore
