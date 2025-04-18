@@ -398,6 +398,9 @@
 .d-flex {\r
   display: flex;\r
 }\r
+.flex-wrap {\r
+  flex-wrap: wrap;\r
+}\r
 \r
 .items-center {\r
   display: flex;\r
