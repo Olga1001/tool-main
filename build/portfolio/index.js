@@ -271,7 +271,52 @@
           link: "https://miway.netlify.app/catalog",
           title: "Miway",
           gitHubCode: "",
-          description: "",
+          description: `<b>СТОРІНКА НА СТАДІЇ РОЗРОБКИ</b> <br>
+        Інтернет-магазин з адміністративною панеллю
+<b>Технології:</b> React, Redux Toolkit, Formik, React Router, Yup, Express.js, MongoDB, Netlify Functions, Telegram API<br>
+
+Розроблено повноцінний веб-додаток інтернет-магазину з фронтендом на React та бекендом на Node.js (Express).<br><br>
+⠀
+
+<b>Функціональність клієнтської частини:</b><br><br>
+-Авторизація адміністратора з перевіркою токена через JWT.<br>
+
+-Маршрутизація через React Router.<br>
+
+-Стан додатку керується за допомогою Redux Toolkit.<br>
+
+-Пошук товарів з асинхронною підгрузкою, фільтрацією за категоріями, сортуванням (за популярністю, знижками, ціною).<br>
+
+-Форми обробляються через Formik + Yup (валідація).<br>
+
+-Пошук і навігація з використанням кастомного хука useBreadcrumbs.<br>
+
+-Lazy loading компонентів з React.lazy та Suspense.<br>
+
+-Телеграм-бот надсилає повідомлення про нові успішні замовлення в канал.<br><br>
+
+<b>Бекенд:</b><br><br>
+-Реалізовано на Express.js, з підключенням до бази даних MongoDB.<br>
+
+-JWT авторизація з middleware для захисту API.<br>
+
+-API для:<br>
+
+--Аутентифікації адміністратора<br>
+
+--Додавання та оновлення товарів і категорій<br>
+
+--Отримання товарів з фільтрацією, сортуванням, пошуком і пагінацією<br>
+
+--Збереження загальних налаштувань (популярні, акційні товари тощо)<br>
+
+--Оформлення замовлень<br>
+
+-Дані зберігаються у колекціях Products, Categories, Orders, Users, Data.<br>
+
+-Netlify Functions використані для деплою API в serverless-режимі.<br>
+
+-CORS налаштовано для захищеного обміну між фронтендом і бекендом.`,
           collections: "react"
         },
         1: {
@@ -372,8 +417,8 @@
     if (r !== "all")
       for (const [o, l] of Object.entries(i)) {
         const c = {};
-        for (const [v, u] of Object.entries(l.variants))
-          (a = u.collections) != null && a.split(",").map((g) => g.trim()).includes(r) && (c[v] = u);
+        for (const [v, m] of Object.entries(l.variants))
+          (a = m.collections) != null && a.split(",").map((g) => g.trim()).includes(r) && (c[v] = m);
         Object.keys(c).length > 0 && (e[o] = { variants: c });
       }
     for (const o in e) {
@@ -394,9 +439,9 @@
   function M(i) {
     return i && i.__esModule && Object.prototype.hasOwnProperty.call(i, "default") ? i.default : i;
   }
-  var _ = { exports: {} }, x = { exports: {} }, S;
+  var S = { exports: {} }, x = { exports: {} }, _;
   function O() {
-    return S || (S = 1, function(i) {
+    return _ || (_ = 1, function(i) {
       (function(r, e) {
         i.exports ? i.exports = e() : r.EvEmitter = e();
       })(typeof window < "u" ? window : L, function() {
@@ -478,15 +523,15 @@
               this.addElementBackgroundImages(J);
           }
         };
-        const u = /url\((['"])?(.*?)\1\)/gi;
+        const m = /url\((['"])?(.*?)\1\)/gi;
         c.prototype.addElementBackgroundImages = function(t) {
           let s = getComputedStyle(t);
           if (!s)
             return;
-          let p = u.exec(s.backgroundImage);
+          let p = m.exec(s.backgroundImage);
           for (; p !== null; ) {
             let d = p && p[2];
-            d && this.addBackground(d, t), p = u.exec(s.backgroundImage);
+            d && this.addBackground(d, t), p = m.exec(s.backgroundImage);
           }
         }, c.prototype.addImage = function(t) {
           let s = new g(t);
@@ -557,9 +602,9 @@
         }, c.makeJQueryPlugin(), c;
       }
     );
-  })(_);
-  var T = _.exports;
-  const E = /* @__PURE__ */ M(T), D = `html.fixed_body,\r
+  })(S);
+  var T = S.exports;
+  const P = /* @__PURE__ */ M(T), D = `html.fixed_body,\r
 .fixed_body body {\r
   overflow: hidden !important;\r
 }\r
@@ -885,7 +930,7 @@ a:hover svg {\r
   }\r
 }/*# sourceMappingURL=main.css.map */`;
   A({ name: "Portfolio", dev: "Olha Zhuravel" }), document.head.insertAdjacentHTML("beforeend", `<style>${D}</style>`), document.head.insertAdjacentHTML("beforeend", `<style>${z}</style>`);
-  const q = window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop", P = () => {
+  const q = window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop", E = () => {
     let i = setInterval(() => {
       if (typeof Masonry == "function") {
         clearInterval(i);
@@ -894,21 +939,21 @@ a:hover svg {\r
           columnWidth: ".width-25",
           percentPosition: !0
         });
-        return E(r, () => {
+        return P(r, () => {
           e.layout();
         }), e;
       }
     });
-  }, W = () => {
+  }, R = () => {
     const i = h(".masonry");
-    E(i, () => {
-      m.msnry ? (m.msnry.reloadItems(), m.msnry.layout()) : m.msnry = P();
+    P(i, () => {
+      u.msnry ? (u.msnry.reloadItems(), u.msnry.layout()) : u.msnry = E();
     });
   }, j = (i) => {
     let r = window.location.pathname + "?" + i;
     history.pushState(null, "", r);
   };
-  class G {
+  class W {
     constructor() {
       this.msnry = null, this.init();
     }
@@ -934,13 +979,13 @@ a:hover svg {\r
             return;
           h("nav a.active").classList.remove("active"), r.classList.add("active");
           const n = r.dataset.filter, a = $(b, n);
-          h(".portfolio_list").innerHTML = a, W(), this.clickOnProject();
+          h(".portfolio_list").innerHTML = a, R(), this.clickOnProject();
         });
       });
     }
   }
-  const m = new G();
-  m.msnry = P(), setTimeout(() => {
+  const u = new W();
+  u.msnry = E(), setTimeout(() => {
     document.body.classList.add("init");
   }, 300);
   class C {
