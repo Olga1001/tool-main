@@ -1,11 +1,11 @@
 (function() {
   "use strict";
-  const A = ({ name: i, dev: r }) => {
+  const v = ({ name: t, dev: r }) => {
     console.log(
-      `%c EXP: ${i} (DEV: ${r})`,
+      `%c EXP: ${t} (DEV: ${r})`,
       "background: #3498eb; color: #fccf3a; font-size: 20px; font-weight: bold;"
     );
-  }, w = (i) => document.querySelectorAll(i), h = (i) => document.querySelector(i), y = "../src/portfolio/assets/", k = {
+  }, b = (t) => document.querySelectorAll(t), o = (t) => document.querySelector(t), d = "../src/portfolio/assets/", g = {
     arrowLeft: (
       /*html */
       `
@@ -19,7 +19,7 @@
     <svg aria-hidden="true" height="24" viewBox="0 0 24 24" version="1.1" width="24" data-view-component="true" class="octicon octicon-mark-github">
       <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"></path>
     </svg>`
-  }, b = {
+  }, l = {
     cerebelly: {
       variants: {
         0: {
@@ -294,31 +294,31 @@
         }
       }
     }
-  }, I = () => {
-    var e;
-    const i = /* @__PURE__ */ new Set();
-    for (const n in b) {
-      const a = b[n].variants;
-      for (const o in a) {
-        const l = (e = a[o].collections) == null ? void 0 : e.split(",").map((c) => c.trim());
-        l == null || l.forEach((c) => i.add(c));
+  }, x = () => {
+    var n;
+    const t = /* @__PURE__ */ new Set();
+    for (const e in l) {
+      const a = l[e].variants;
+      for (const i in a) {
+        const s = (n = a[i].collections) == null ? void 0 : n.split(",").map((c) => c.trim());
+        s == null || s.forEach((c) => t.add(c));
       }
     }
     let r = '<li><a href="#" data-filter="all" class="active">All</a></li>';
-    return i.forEach((n) => {
-      r += `<li><a href="#" data-filter="${n}">${n}</a></li>`;
-    }), `<ul class="d-flex">${r}</ul>`;
-  }, B = () => {
-    let i = "";
-    for (const r in b) {
-      const e = b[r].variants;
-      for (const n in e) {
-        const a = e[n].images[0], o = e[n].collections;
-        i += `
-                <div class="portfolio_item item-masonry ${e[n].classes ? e[n].classes : "width-25"}" data-collections="${o}">
-                    <a href="?product=${r}&variant=${n}">
+    return t.forEach((e) => {
+      r += `<li><a href="#" data-filter="${e}">${e}</a></li>`;
+    }), `<ul class="d-flex flex-wrap">${r}</ul>`;
+  }, w = () => {
+    let t = "";
+    for (const r in l) {
+      const n = l[r].variants;
+      for (const e in n) {
+        const a = n[e].images[0], i = n[e].collections;
+        t += `
+                <div class="portfolio_item item-masonry ${n[e].classes ? n[e].classes : "width-25"}" data-collections="${i}">
+                    <a href="?product=${r}&variant=${e}">
                         <span>
-                            <img src="${y + "images/" + r + a}" alt="${r} image">
+                            <img src="${d + "images/" + r + a}" alt="${r} image">
                         </span>
                     </a>
                 </div>`;
@@ -333,233 +333,63 @@
                     <h3>Completed projects</h3>
                 </div>
                 <nav class="nav">
-                    ${I()}
+                    ${x()}
                 </nav>
-                <div class="portfolio_list masonry">${i}</div>
+                <div class="portfolio_list masonry">${t}</div>
             <div>
         </div>`;
-  }, H = (i, r) => {
-    const e = b[i].variants[r], n = e.images;
+  }, y = (t, r) => {
+    const n = l[t].variants[r], e = n.images;
     let a = "";
-    for (let o = 0; o < n.length; o++)
-      a += `<div class="swiper-slide"><img src="${y + "images/" + i + n[o]}" alt="image"></div>`;
+    for (let i = 0; i < e.length; i++)
+      a += `<div class="swiper-slide"><img src="${d + "images/" + t + e[i]}" alt="image"></div>`;
     return `
         <div class="product">
             <div class="d-flex">
                 <div class="product_left">
-                    <a href="#" class="btn-back items-center">${k.arrowLeft} Back</a>
+                    <a href="#" class="btn-back items-center">${g.arrowLeft} Back</a>
                     <div class="product_gallery">
                         ${a}
                     </div>
                 </div>
                 <div class="product_right">
                     <div class="product_info">
-                        <h2>${e.title}</h2>
+                        <h2>${n.title}</h2>
 
-                        ${e.link ? `<a href="${e.link}" target="_blank"><b>Preview</b></a><br><br>` : ""}
+                        ${n.link ? `<a href="${n.link}" target="_blank"><b>Preview</b></a><br><br>` : ""}
                        
-                        <p>${e.description}</p>
+                        <p>${n.description}</p>
                      
-                        ${e.gitHubCode ? `<br><br><a href="${e.gitHubCode}" class="items-center" target="_blank">${k.github} <b>Github</b></a>` : ""}
+                        ${n.gitHubCode ? `<br><br><a href="${n.gitHubCode}" class="items-center" target="_blank">${g.github} <b>Github</b></a>` : ""}
                     </div>
                 </div>
             </div>
         </div>`;
-  }, $ = (i, r) => {
+  }, k = (t, r) => {
     var a;
-    const e = r === "all" ? b : {};
-    let n = "";
+    const n = r === "all" ? l : {};
+    let e = "";
     if (r !== "all")
-      for (const [o, l] of Object.entries(i)) {
+      for (const [i, s] of Object.entries(t)) {
         const c = {};
-        for (const [v, u] of Object.entries(l.variants))
-          (a = u.collections) != null && a.split(",").map((g) => g.trim()).includes(r) && (c[v] = u);
-        Object.keys(c).length > 0 && (e[o] = { variants: c });
+        for (const [C, f] of Object.entries(s.variants))
+          (a = f.collections) != null && a.split(",").map((H) => H.trim()).includes(r) && (c[C] = f);
+        Object.keys(c).length > 0 && (n[i] = { variants: c });
       }
-    for (const o in e) {
-      let l = e[o].variants;
-      for (const c in l)
-        n += `
-                <div class="portfolio_item item-masonry ${l[c].classes ? l[c].classes : "width-25"}" data-collections="${l[c].collections}">
-                    <a href="?product=${o}&variant=${c}">
+    for (const i in n) {
+      let s = n[i].variants;
+      for (const c in s)
+        e += `
+                <div class="portfolio_item item-masonry ${s[c].classes ? s[c].classes : "width-25"}" data-collections="${s[c].collections}">
+                    <a href="?product=${i}&variant=${c}">
                         <span>
-                            <img src="${y + "images/" + o + l[c].images[0]}" alt="${o} image">
+                            <img src="${d + "images/" + i + s[c].images[0]}" alt="${i} image">
                         </span>
                     </a>
                 </div>`;
     }
-    return n;
-  };
-  var L = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
-  function M(i) {
-    return i && i.__esModule && Object.prototype.hasOwnProperty.call(i, "default") ? i.default : i;
-  }
-  var _ = { exports: {} }, x = { exports: {} }, S;
-  function O() {
-    return S || (S = 1, function(i) {
-      (function(r, e) {
-        i.exports ? i.exports = e() : r.EvEmitter = e();
-      })(typeof window < "u" ? window : L, function() {
-        function r() {
-        }
-        let e = r.prototype;
-        return e.on = function(n, a) {
-          if (!n || !a)
-            return this;
-          let o = this._events = this._events || {}, l = o[n] = o[n] || [];
-          return l.includes(a) || l.push(a), this;
-        }, e.once = function(n, a) {
-          if (!n || !a)
-            return this;
-          this.on(n, a);
-          let o = this._onceEvents = this._onceEvents || {}, l = o[n] = o[n] || {};
-          return l[a] = !0, this;
-        }, e.off = function(n, a) {
-          let o = this._events && this._events[n];
-          if (!o || !o.length)
-            return this;
-          let l = o.indexOf(a);
-          return l != -1 && o.splice(l, 1), this;
-        }, e.emitEvent = function(n, a) {
-          let o = this._events && this._events[n];
-          if (!o || !o.length)
-            return this;
-          o = o.slice(0), a = a || [];
-          let l = this._onceEvents && this._onceEvents[n];
-          for (let c of o)
-            l && l[c] && (this.off(n, c), delete l[c]), c.apply(this, a);
-          return this;
-        }, e.allOff = function() {
-          return delete this._events, delete this._onceEvents, this;
-        }, r;
-      });
-    }(x)), x.exports;
-  }
-  /*!
-   * imagesLoaded v5.0.0
-   * JavaScript is all like "You images are done yet or what?"
-   * MIT License
-   */
-  (function(i) {
-    (function(r, e) {
-      i.exports ? i.exports = e(r, O()) : r.imagesLoaded = e(r, r.EvEmitter);
-    })(
-      typeof window < "u" ? window : L,
-      function(e, n) {
-        let a = e.jQuery, o = e.console;
-        function l(t) {
-          return Array.isArray(t) ? t : typeof t == "object" && typeof t.length == "number" ? [...t] : [t];
-        }
-        function c(t, s, p) {
-          if (!(this instanceof c))
-            return new c(t, s, p);
-          let d = t;
-          if (typeof t == "string" && (d = document.querySelectorAll(t)), !d) {
-            o.error(`Bad element for imagesLoaded ${d || t}`);
-            return;
-          }
-          this.elements = l(d), this.options = {}, typeof s == "function" ? p = s : Object.assign(this.options, s), p && this.on("always", p), this.getImages(), a && (this.jqDeferred = new a.Deferred()), setTimeout(this.check.bind(this));
-        }
-        c.prototype = Object.create(n.prototype), c.prototype.getImages = function() {
-          this.images = [], this.elements.forEach(this.addElementImages, this);
-        };
-        const v = [1, 9, 11];
-        c.prototype.addElementImages = function(t) {
-          t.nodeName === "IMG" && this.addImage(t), this.options.background === !0 && this.addElementBackgroundImages(t);
-          let { nodeType: s } = t;
-          if (!s || !v.includes(s))
-            return;
-          let p = t.querySelectorAll("img");
-          for (let d of p)
-            this.addImage(d);
-          if (typeof this.options.background == "string") {
-            let d = t.querySelectorAll(this.options.background);
-            for (let J of d)
-              this.addElementBackgroundImages(J);
-          }
-        };
-        const u = /url\((['"])?(.*?)\1\)/gi;
-        c.prototype.addElementBackgroundImages = function(t) {
-          let s = getComputedStyle(t);
-          if (!s)
-            return;
-          let p = u.exec(s.backgroundImage);
-          for (; p !== null; ) {
-            let d = p && p[2];
-            d && this.addBackground(d, t), p = u.exec(s.backgroundImage);
-          }
-        }, c.prototype.addImage = function(t) {
-          let s = new g(t);
-          this.images.push(s);
-        }, c.prototype.addBackground = function(t, s) {
-          let p = new f(t, s);
-          this.images.push(p);
-        }, c.prototype.check = function() {
-          if (this.progressedCount = 0, this.hasAnyBroken = !1, !this.images.length) {
-            this.complete();
-            return;
-          }
-          let t = (s, p, d) => {
-            setTimeout(() => {
-              this.progress(s, p, d);
-            });
-          };
-          this.images.forEach(function(s) {
-            s.once("progress", t), s.check();
-          });
-        }, c.prototype.progress = function(t, s, p) {
-          this.progressedCount++, this.hasAnyBroken = this.hasAnyBroken || !t.isLoaded, this.emitEvent("progress", [this, t, s]), this.jqDeferred && this.jqDeferred.notify && this.jqDeferred.notify(this, t), this.progressedCount === this.images.length && this.complete(), this.options.debug && o && o.log(`progress: ${p}`, t, s);
-        }, c.prototype.complete = function() {
-          let t = this.hasAnyBroken ? "fail" : "done";
-          if (this.isComplete = !0, this.emitEvent(t, [this]), this.emitEvent("always", [this]), this.jqDeferred) {
-            let s = this.hasAnyBroken ? "reject" : "resolve";
-            this.jqDeferred[s](this);
-          }
-        };
-        function g(t) {
-          this.img = t;
-        }
-        g.prototype = Object.create(n.prototype), g.prototype.check = function() {
-          if (this.getIsImageComplete()) {
-            this.confirm(this.img.naturalWidth !== 0, "naturalWidth");
-            return;
-          }
-          this.proxyImage = new Image(), this.img.crossOrigin && (this.proxyImage.crossOrigin = this.img.crossOrigin), this.proxyImage.addEventListener("load", this), this.proxyImage.addEventListener("error", this), this.img.addEventListener("load", this), this.img.addEventListener("error", this), this.proxyImage.src = this.img.currentSrc || this.img.src;
-        }, g.prototype.getIsImageComplete = function() {
-          return this.img.complete && this.img.naturalWidth;
-        }, g.prototype.confirm = function(t, s) {
-          this.isLoaded = t;
-          let { parentNode: p } = this.img, d = p.nodeName === "PICTURE" ? p : this.img;
-          this.emitEvent("progress", [this, d, s]);
-        }, g.prototype.handleEvent = function(t) {
-          let s = "on" + t.type;
-          this[s] && this[s](t);
-        }, g.prototype.onload = function() {
-          this.confirm(!0, "onload"), this.unbindEvents();
-        }, g.prototype.onerror = function() {
-          this.confirm(!1, "onerror"), this.unbindEvents();
-        }, g.prototype.unbindEvents = function() {
-          this.proxyImage.removeEventListener("load", this), this.proxyImage.removeEventListener("error", this), this.img.removeEventListener("load", this), this.img.removeEventListener("error", this);
-        };
-        function f(t, s) {
-          this.url = t, this.element = s, this.img = new Image();
-        }
-        return f.prototype = Object.create(g.prototype), f.prototype.check = function() {
-          this.img.addEventListener("load", this), this.img.addEventListener("error", this), this.img.src = this.url, this.getIsImageComplete() && (this.confirm(this.img.naturalWidth !== 0, "naturalWidth"), this.unbindEvents());
-        }, f.prototype.unbindEvents = function() {
-          this.img.removeEventListener("load", this), this.img.removeEventListener("error", this);
-        }, f.prototype.confirm = function(t, s) {
-          this.isLoaded = t, this.emitEvent("progress", [this, this.element, s]);
-        }, c.makeJQueryPlugin = function(t) {
-          t = t || e.jQuery, t && (a = t, a.fn.imagesLoaded = function(s, p) {
-            return new c(this, s, p).jqDeferred.promise(a(this));
-          });
-        }, c.makeJQueryPlugin(), c;
-      }
-    );
-  })(_);
-  var T = _.exports;
-  const E = /* @__PURE__ */ M(T), D = `html.fixed_body,\r
+    return e;
+  }, S = `html.fixed_body,\r
 .fixed_body body {\r
   overflow: hidden !important;\r
 }\r
@@ -606,7 +436,7 @@
   .d-md-flex {\r
     display: flex;\r
   }\r
-}/*# sourceMappingURL=base.css.map */`, z = `*, *:before, *:after {\r
+}/*# sourceMappingURL=base.css.map */`, _ = `*, *:before, *:after {\r
   box-sizing: border-box;\r
   padding: 0;\r
   margin: 0;\r
@@ -881,31 +711,31 @@ a:hover svg {\r
     fill: #1e1e1e;\r
   }\r
 }/*# sourceMappingURL=main.css.map */`;
-  A({ name: "Portfolio", dev: "Olha Zhuravel" }), document.head.insertAdjacentHTML("beforeend", `<style>${D}</style>`), document.head.insertAdjacentHTML("beforeend", `<style>${z}</style>`);
-  const q = window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop", P = () => {
-    let i = setInterval(() => {
+  v({ name: "Portfolio", dev: "Olha Zhuravel" }), document.head.insertAdjacentHTML("beforeend", `<style>${S}</style>`), document.head.insertAdjacentHTML("beforeend", `<style>${_}</style>`);
+  const P = window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop", h = () => {
+    let t = setInterval(() => {
       if (typeof Masonry == "function") {
-        clearInterval(i);
-        const r = h(".masonry"), e = new Masonry(r, {
+        clearInterval(t);
+        const r = o(".masonry"), n = new Masonry(r, {
           itemSelector: ".item-masonry",
           columnWidth: ".width-25",
           percentPosition: !0
         });
-        return E(r, () => {
-          e.layout();
-        }), e;
+        return imagesLoaded(r, () => {
+          n.layout();
+        }), n;
       }
     });
-  }, W = () => {
-    const i = h(".masonry");
-    E(i, () => {
-      m.msnry ? (m.msnry.reloadItems(), m.msnry.layout()) : m.msnry = P();
+  }, L = () => {
+    const t = o(".masonry");
+    imagesLoaded(t, () => {
+      p.msnry ? (p.msnry.reloadItems(), p.msnry.layout()) : p.msnry = h();
     });
-  }, j = (i) => {
-    let r = window.location.pathname + "?" + i;
+  }, m = (t) => {
+    let r = window.location.pathname + "?" + t;
     history.pushState(null, "", r);
   };
-  class G {
+  class j {
     constructor() {
       this.msnry = null, this.init();
     }
@@ -913,62 +743,62 @@ a:hover svg {\r
       this.addProjectsInPortfolio(), this.clickOnProject(), this.nav();
     }
     addProjectsInPortfolio() {
-      h(".wrapper").insertAdjacentHTML("beforeend", B());
+      o(".wrapper").insertAdjacentHTML("beforeend", w());
     }
     clickOnProject() {
-      w(".portfolio_item a").forEach((r, e) => {
-        r.addEventListener("click", (n) => {
-          n.preventDefault(), n.stopPropagation();
-          let a = r.search.split("product=")[1].split("&")[0], o = r.search.split("variant=")[1], l = "product=" + a + "&variant=" + o;
-          j(l), new C(a, o);
+      b(".portfolio_item a").forEach((r, n) => {
+        r.addEventListener("click", (e) => {
+          e.preventDefault(), e.stopPropagation();
+          let a = r.search.split("product=")[1].split("&")[0], i = r.search.split("variant=")[1], s = "product=" + a + "&variant=" + i;
+          m(s), new u(a, i);
         });
       });
     }
     nav() {
-      w("nav a[data-filter]").forEach((r) => {
-        r.addEventListener("click", (e) => {
-          if (e.preventDefault(), r.classList.contains("active"))
+      b("nav a[data-filter]").forEach((r) => {
+        r.addEventListener("click", (n) => {
+          if (n.preventDefault(), r.classList.contains("active"))
             return;
-          h("nav a.active").classList.remove("active"), r.classList.add("active");
-          const n = r.dataset.filter, a = $(b, n);
-          h(".portfolio_list").innerHTML = a, W(), this.clickOnProject();
+          o("nav a.active").classList.remove("active"), r.classList.add("active");
+          const e = r.dataset.filter, a = k(l, e);
+          o(".portfolio_list").innerHTML = a, L(), this.clickOnProject();
         });
       });
     }
   }
-  const m = new G();
-  m.msnry = P(), setTimeout(() => {
+  const p = new j();
+  p.msnry = h(), setTimeout(() => {
     document.body.classList.add("init");
   }, 300);
-  class C {
-    constructor(r, e) {
-      this.namePDP = r, this.variantPDP = e, this.init();
+  class u {
+    constructor(r, n) {
+      this.namePDP = r, this.variantPDP = n, this.init();
     }
     init() {
-      this.addPDP(), this.clickBack(), h("html").classList.add("fixed_body");
+      this.addPDP(), this.clickBack(), o("html").classList.add("fixed_body");
     }
     addPDP() {
-      var e;
-      (e = h(".product")) == null || e.remove(), document.body.insertAdjacentHTML("afterbegin", H(this.namePDP, this.variantPDP)), q === "mobile" && h(".product_info").before(h(".product .btn-back")), setTimeout(() => {
-        h(".product").classList.add("active");
+      var n;
+      (n = o(".product")) == null || n.remove(), document.body.insertAdjacentHTML("afterbegin", y(this.namePDP, this.variantPDP)), P === "mobile" && o(".product_info").before(o(".product .btn-back")), setTimeout(() => {
+        o(".product").classList.add("active");
       }, 300);
       const r = () => {
-        h(".product").style.height = window.innerHeight + "px";
+        o(".product").style.height = window.innerHeight + "px";
       };
       window.addEventListener("resize", r), r();
     }
     clickBack() {
-      h(".product .btn-back").addEventListener("click", (r) => {
-        r.preventDefault(), h(".product").classList.remove("active"), setTimeout(() => {
-          var e;
-          (e = h(".product")) == null || e.remove();
-        }, 300), h("html").classList.remove("fixed_body"), j("");
+      o(".product .btn-back").addEventListener("click", (r) => {
+        r.preventDefault(), o(".product").classList.remove("active"), setTimeout(() => {
+          var n;
+          (n = o(".product")) == null || n.remove();
+        }, 300), o("html").classList.remove("fixed_body"), m("");
       });
     }
   }
   if (window.location.href.includes("?product")) {
-    const i = window.location.href.split("product=")[1].split("&")[0], r = window.location.href.split("variant=")[1].replace("#", "");
-    new C(i, r);
+    const t = window.location.href.split("product=")[1].split("&")[0], r = window.location.href.split("variant=")[1].replace("#", "");
+    new u(t, r);
   }
 })();
 //# sourceMappingURL=index.js.map

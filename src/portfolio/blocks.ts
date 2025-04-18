@@ -17,7 +17,7 @@ const createNavMenu = () => {
         navItems += `<li><a href="#" data-filter="${category}">${category}</a></li>`;
     });
 
-    return `<ul class="d-flex">${navItems}</ul>`;
+    return `<ul class="d-flex flex-wrap">${navItems}</ul>`;
 };
 
 export const addPortfolioSection = () => {
